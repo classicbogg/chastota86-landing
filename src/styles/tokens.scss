@@ -1,0 +1,20 @@
+:root,
+[data-theme='night'] {
+  --ink: #1a1612;
+  --ink-2: #2a241c;
+  --dust: #c4a574;
+  --dust-dim: #8a7048;
+  --crt: #7cffb2;
+  --crt-dim: #2a6a48;
+  --amber: #e8a23a;
+  --rust: #a33a2a;
+  --steel: #8a8f8a;
+  --jam: #4a5a62;
+  --paper: #e8e0d4;
+  --paper-dim: #b8b0a4;
+  --frame: rgba(232, 224, 212, 0.28);
+  --space: clamp(1.2rem, 3vw, 2.4rem);
+  --page: min(72rem, calc(100vw - 2.4rem));
+  --title: 'Oswald', 'Arial Narrow', sans-serif;
+  --ui: 'Exo 2', 'Segoe UI', sans-serif;
+}
