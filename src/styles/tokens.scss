@@ -17,4 +17,15 @@
   --page: min(72rem, calc(100vw - 2.4rem));
   --title: 'Oswald', 'Arial Narrow', sans-serif;
   --ui: 'Exo 2', 'Segoe UI', sans-serif;
+  --hero-display: 'Sofia Sans Extra Condensed', 'Oswald', sans-serif;
+  --hero-voice: 'IBM Plex Sans', 'Exo 2', sans-serif;
+  --bill-type: 'TT2020 Style D', 'IBM Plex Sans', ui-monospace, monospace;
+  --header-bar-solid: rgb(26 22 18 / 0.88);
+  --header-glass-bg: rgb(26 22 18 / 0.78);
+  --header-glass-border: rgb(232 224 212 / 0.16);
+  --header-glass-shadow: 0 12px 40px rgb(0 0 0 / 0.28);
+  --header-nav-link: var(--paper);
+  --header-nav-link-hover: var(--dust);
+  --header-mobile-overlay: rgb(0 0 0 / 0.55);
+  --header-mobile-panel: rgb(26 22 18 / 0.97);
 }

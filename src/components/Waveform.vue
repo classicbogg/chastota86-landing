@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 
+const props = defineProps<{ live?: boolean }>()
+
 const canvas = ref<HTMLCanvasElement | null>(null)
 let raf = 0
-let talking = true
 
 const draw = (ctx: CanvasRenderingContext2D, w: number, h: number, t: number) => {
   ctx.clearRect(0, 0, w, h)
-  ctx.strokeStyle = talking ? '#7cffb2' : '#2a6a48'
+  const live = Boolean(props.live)
+  ctx.strokeStyle = live ? '#7cffb2' : '#2a6a48'
   ctx.lineWidth = 1.6
   ctx.beginPath()
   const mid = h / 2
   for (let x = 0; x < w; x++) {
     const n = x / w
-    const amp = talking ? 0.32 * h : 0.08 * h
+    const amp = live ? 0.32 * h : 0.08 * h
     const y =
       mid +
       Math.sin(n * 18 + t * 0.008) * amp * 0.55 +

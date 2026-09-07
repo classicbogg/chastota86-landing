@@ -1,120 +1,73 @@
-<script setup lang="ts">
-const nodes = [
-  { id: 'q', name: 'Карьер', hint: 'старт · тепло' },
-  { id: 'f', name: 'Вилка', hint: 'пусто или дворы' },
-  { id: 't', name: 'Вышка 14', hint: 'живая частота' },
-]
-</script>
-
 <template>
-  <section id="trassa" class="path">
-    <p class="stamp">ТРАССА</p>
-    <h2>Назад нельзя.<br />Пыль это помнит.</h2>
-    <p class="lead">
-      Ночь — чётки из развилок. Прямая быстрее и глуше. Объезд — люди, ложь и эфир.
-      Как проехал, так и будут говорить на следующей частоте.
-    </p>
-    <ol class="line">
-      <li v-for="(n, i) in nodes" :key="n.id" :data-last="i === nodes.length - 1">
-        <i />
-        <strong>{{ n.name }}</strong>
-        <span>{{ n.hint }}</span>
-      </li>
-    </ol>
+  <section id="trassa" class="path" aria-labelledby="trassa-title">
+    <div class="inner">
+      <header class="head">
+        <h2 id="trassa-title">трасса</h2>
+      </header>
+      <div class="about">
+        <p>
+          Карта не одна на все ночи. Места меняются: другой старт, другие дворы, другая вышка.
+          Развилка каждый раз новая.
+        </p>
+        <p>Едешь только вперёд. Пыль закрывает то, что осталось за спиной.</p>
+        <p>
+          Прямая короче и глуше. В объезд - чужие окна и чужие голоса.
+          Куда ехать - выбираешь сам.
+        </p>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 .path {
-  padding: clamp(3rem, 8vw, 6rem) 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: clamp(22rem, 56vw, 36rem);
+  padding: clamp(2.6rem, 6vw, 4.4rem) clamp(1.1rem, 4vw, 2.4rem);
+  background:
+    linear-gradient(90deg, rgb(12 14 12 / 0.88) 0%, rgb(12 14 12 / 0.55) 42%, rgb(12 14 12 / 0.22) 100%),
+    linear-gradient(180deg, rgb(12 14 12 / 0.5) 0%, transparent 40%, rgb(12 14 12 / 0.72) 100%),
+    url('/img/trassa.png') center / cover no-repeat;
 }
 
-.stamp {
-  margin: 0 0 0.6rem;
-  color: var(--dust);
-  letter-spacing: 0.28em;
-  font-size: 0.78rem;
+.inner {
+  width: var(--page);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid rgb(138 143 138 / 0.28);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.6rem;
 }
 
 h2 {
-  margin: 0 0 1rem;
-  font-family: var(--title);
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 600;
-  line-height: 1.05;
-}
-
-.lead {
-  max-width: 38rem;
-  color: var(--paper-dim);
-  margin: 0 0 2.4rem;
-}
-
-.line {
-  list-style: none;
   margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  position: relative;
-}
-
-.line::before {
-  content: '';
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 11px;
-  height: 1px;
-  background: var(--steel);
-}
-
-li {
-  position: relative;
-  padding-top: 2rem;
-}
-
-i {
-  position: absolute;
-  top: 4px;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--dust);
-  border-radius: 50%;
-  background: var(--ink);
-}
-
-li[data-last='true'] i {
-  border-color: var(--crt);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--crt) 20%, transparent);
-}
-
-strong {
-  display: block;
   font-family: var(--title);
-  font-size: 1.4rem;
+  font-size: clamp(1.25rem, 2.8vw, 1.9rem);
   font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper);
 }
 
-span {
-  color: var(--paper-dim);
-  font-size: 0.92rem;
+.about {
+  max-width: 36rem;
+  display: grid;
+  gap: 1rem;
 }
 
-@media (max-width: 700px) {
-  .line {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
-  }
-
-  .line::before {
-    left: 7px;
-    right: auto;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    height: auto;
-  }
+.about p {
+  margin: 0;
+  font-family: var(--hero-voice);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.45;
+  color: var(--paper);
 }
 </style>
