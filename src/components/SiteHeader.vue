@@ -2,12 +2,12 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 
 defineProps<{ live: boolean }>()
-const emit = defineEmits<{ toggleEther: [] }>()
 
 const links = [
-  { href: '#vyzov', label: 'Вызов' },
+  { href: '#efir', label: 'Эфир' },
   { href: '#trassa', label: 'Трасса' },
   { href: '#nakladnaya', label: 'Накладная' },
+  { href: '#predzakaz', label: 'Предзаказ' },
 ]
 
 const SCROLL_THRESHOLD = 16
@@ -117,17 +117,14 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <button
+        <div
           class="site-header__ether site-header__ether--detached"
-          type="button"
           :data-on="live"
-          :aria-pressed="live"
-          :aria-label="live ? 'Выключить эфир' : 'Включить эфир'"
-          @click="emit('toggleEther')"
+          aria-live="polite"
         >
           <i aria-hidden="true" />
           <em>{{ live ? 'эфир' : 'тишина' }}</em>
-        </button>
+        </div>
       </div>
     </div>
 
@@ -149,7 +146,7 @@ onUnmounted(() => {
         </nav>
 
         <div class="site-header__mobile-bottom">
-          <span>27.385 - рабочая ложь</span>
+          <span>27.385 - так слышат на трассе</span>
         </div>
       </div>
     </div>
@@ -287,7 +284,7 @@ onUnmounted(() => {
   border-radius: 0 0 20px 0;
   background: var(--header-bar-solid);
   color: var(--header-nav-link);
-  cursor: pointer;
+  cursor: default;
   transition:
     background 0.35s ease,
     border-color 0.35s ease,

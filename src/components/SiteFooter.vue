@@ -13,17 +13,17 @@ const repo = 'https://github.com/classicbogg/efir86'
       <div>
         <p class="k">частота</p>
         <p class="v">27.385</p>
-        <p class="s">рабочая ложь</p>
+        <p class="s">так слышат на трассе</p>
       </div>
       <div>
-        <p class="k">смена</p>
+        <p class="k">мы</p>
         <p class="v">трое</p>
-        <p class="s">код · логика · звук</p>
+        <p class="s">делаем эту игру</p>
       </div>
       <div class="end">
-        <p class="k">журнал</p>
+        <p class="k">сборка</p>
         <p class="v"><a :href="repo" target="_blank" rel="noreferrer">эфир86</a></p>
-        <p class="s">демо · Godot 4</p>
+        <p class="s">демо на Godot</p>
       </div>
     </div>
   </footer>
